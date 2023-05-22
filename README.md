@@ -31,12 +31,18 @@ Chat application built using PERN stack
 ### **Helpful Links**
 
 #### *Documentation for packages*
-[Bootstrap docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- [Bootstrap docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
-[Socket.io docs](https://socket.io/docs/v4/)
+- [Socket.io docs](https://socket.io/docs/v4/)
 
-[React docs](https://react.dev/reference/react)
+- [React docs](https://react.dev/reference/react)
+
+- [Express docs](https://expressjs.com/en/4x/api.html)
 
 #### *Helpful articles*
 
-[Rendering react app using express server in node](https://levelup.gitconnected.com/how-to-render-react-app-using-express-server-in-node-js-a428ec4dfe2b)
+- [Rendering react app using express server in node](https://levelup.gitconnected.com/how-to-render-react-app-using-express-server-in-node-js-a428ec4dfe2b)
+
+- [Pushing updates using mercure( for possible mobile push notification addition in order to bypass the disadvantage of socket.io requiring a constant connection )](https://symfony.com/doc/current/mercure.html#running-a-mercure-hub)
+
+- [Socket.io advantages/disadvantages at scale](https://ably.com/topic/scaling-socketio#who-uses-socket-io-at-scale)
