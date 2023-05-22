@@ -1,16 +1,16 @@
-# Chat Application Using [Socket.io](https://socket.io/docs/v4/)
+# **Chat Application Using [Socket.io](https://socket.io/docs/v4/)**
 
 Chat application built using PERN stack
 
-# Broad Requirements:
->User Demands:
+# **Broad Requirements:**
+>*User Demands:*
  >1. ability to send and receive messages
  >2. live message feedback
  >3. private messaging
  >4. options for room joining/leaving
  >5. Keep track of rooms for user
 
->Server Demands:
+>*Server Demands:*
  >1. ability to receive and send messages
  >2. Needs to be CORS enabled
  >3. Possible addition of backing up messages using a postgresql database
