@@ -40,7 +40,10 @@ const App = () => {
   // })
 
   // state for dynamically letting user know if they are connected and for button to keep track of connection
-  const [isConnected, setIsConnected] = useState(socket.connected)
+
+  // socket should not connect automatically so the state should start as false
+  const [isConnected, setIsConnected] = useState(false)
+
   // This useEffect has event listeners and changes the state
   // Use this to send socket events without running them multiple times as state updates
   useEffect(() => {
@@ -105,7 +108,7 @@ const App = () => {
 
             </div>
             <div className="col-3 col-md-3 g-2 m-3">
-              <button 
+              {isConnected ? <button 
               type="submit" 
               className="btn btn-primary w-100"
               onClick={(ev) => {
@@ -114,7 +117,15 @@ const App = () => {
               }}
               >
                 Send
-              </button>
+              </button> : <button 
+              type="submit" 
+              className="btn btn-primary w-100"
+              onClick={(ev) => {
+                ev.preventDefault();
+              }}
+              disabled>
+                Send
+              </button>}
             </div>
           </form>
       </div>
