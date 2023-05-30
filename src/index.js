@@ -42,7 +42,9 @@ const App = () => {
   // state for dynamically letting user know if they are connected and for button to keep track of connection
   const [isConnected, setIsConnected] = useState(socket.connected)
   // This useEffect has event listeners and changes the state
+  // Use this to send socket events without running them multiple times as state updates
   useEffect(() => {
+    // socket helper functions
     function onConnect() {
       setIsConnected(true);
     }
@@ -56,6 +58,7 @@ const App = () => {
       console.log(messages)
     }
    
+    // socket events
     socket.on('chat message', function(msg) {
       onChatMessage(msg)
     })
