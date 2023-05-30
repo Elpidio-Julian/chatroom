@@ -15,6 +15,10 @@ app.use(express.static("public"))
 
 io.on('connection', (socket) => {
     console.log('a user connected');
+    socket.on('chat message', (msg) => {
+      console.log(`message: ${msg}`)
+      io.emit('chat message', msg);
+    });
   });
 
 server.listen(3000, () => {

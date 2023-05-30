@@ -25,9 +25,6 @@ Chat application built using PERN stack
     - Requires window for viewing messages
 
 
-
-
-
 ### **Helpful Links**
 
 #### *Documentation for packages*
