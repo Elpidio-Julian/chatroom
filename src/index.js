@@ -33,10 +33,11 @@ const App = () => {
   }
 
   // socket io chat message event receiver
-  socket.on('chat message', function(msg) {
-    setMessages(messages => [...messages, {message: msg}])
-    console.log(messages)
-  })
+  // socket.on('chat message', function(msg) {
+  //   // currently updates state far too many times
+  //   setMessages(messages => [...messages, {message: msg}])
+  //   console.log(messages)
+  // })
 
   // state for dynamically letting user know if they are connected and for button to keep track of connection
   const [isConnected, setIsConnected] = useState(socket.connected)
@@ -50,7 +51,14 @@ const App = () => {
       setIsConnected(false);
     }
 
+    function onChatMessage(msg) {
+      setMessages(messages => [...messages, {message: msg}])
+      console.log(messages)
+    }
    
+    socket.on('chat message', function(msg) {
+      onChatMessage(msg)
+    })
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
 
