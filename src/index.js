@@ -76,8 +76,8 @@ const App = () => {
       {!isConnected ? <button type="button" className="btn btn-success" onClick={() => connect()}>Connect</button>
         : <button type="button" className="btn btn-danger" onClick={() => disconnect()}>Disconnect</button>
       }
-      <div className="container pt-3">
-        <div className="row align-items-center justify-content-center">
+      <div className="container pt-3 align-items-center vh-100">
+        <div className="row align-items-start justify-content-center overflow-auto h-75 border border-primary m-1">
           <ul id="chatWindow" className="list-group list-group-flush">
             {messages.map((msg, idx) => {
 
@@ -89,12 +89,13 @@ const App = () => {
             })}
           </ul>
         </div>
-          <form id="chatBox" className="row row-cols-md-auto align-items-center">
-            <div className="col align-items-center justify-content-center g-3">
+          {/* message box below */}
+          <form id="chatBox" className="row row-cols-md-auto align-items-center border border-dark m-1">
+            <div className="col-md-7 col-7 align-items-center justify-content-center g-2 m-2">
 
               <input
                 type='text'
-                className='form-control'
+                className='form-control w-100'
                 placeholder="type message here"
                 value={message}
                 onChange={(ev) => {
@@ -103,10 +104,10 @@ const App = () => {
               />
 
             </div>
-            <div className="col-12 g-3">
+            <div className="col-3 col-md-3 g-2 m-3">
               <button 
               type="submit" 
-              className="btn btn-primary"
+              className="btn btn-primary w-100"
               onClick={(ev) => {
                 ev.preventDefault();
                 sendMessage(message)
