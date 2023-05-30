@@ -7,6 +7,7 @@ import './style.css';
 
 
 const App = () => {
+
   // message state for holding messages from server
   const [messages, setMessages] = useState([
     {
@@ -15,8 +16,10 @@ const App = () => {
       author: 'System'
     }
   ]);
+
   // message state for dynamically updating message to be sent in js
   const [message, setMessage] = useState('');
+
   // functions for connecting/disconnecting from socket
   function connect() {
     socket.connect();
@@ -40,7 +43,6 @@ const App = () => {
   // })
 
   // state for dynamically letting user know if they are connected and for button to keep track of connection
-
   // socket should not connect automatically so the state should start as false
   const [isConnected, setIsConnected] = useState(false)
 
@@ -73,6 +75,7 @@ const App = () => {
     };
   }, []);
   console.log(messages)
+  
   return (
     <React.Fragment>
       <header>Hello World</header>
