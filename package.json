@@ -13,7 +13,8 @@
   "main": "index.js",
   "scripts": {
     "server": "node ./server/index.js",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "front:dev": "react-scripts start"
   },
   "author": "",
   "license": "NO LICENSE",

@@ -12,7 +12,7 @@ const App = () => {
     {
       message: 'Welcome to the Chatter',
       edited: false,
-      author: 'system'
+      author: 'System'
     }
   ]);
   // message state for dynamically updating message to be sent in js
@@ -55,7 +55,6 @@ const App = () => {
 
     function onChatMessage(msg) {
       setMessages(messages => [...messages, {message: msg}])
-      console.log(messages)
     }
    
     // socket events
@@ -70,6 +69,7 @@ const App = () => {
       socket.off('disconnect', onDisconnect);
     };
   }, []);
+  console.log(messages)
   return (
     <React.Fragment>
       <header>Hello World</header>
@@ -77,24 +77,24 @@ const App = () => {
         : <button type="button" className="btn btn-danger" onClick={() => disconnect()}>Disconnect</button>
       }
       <div className="container pt-3">
-        <div className="row align-items-start">
-          <ul id="chatWindow">
+        <div className="row align-items-center justify-content-center">
+          <ul id="chatWindow" className="list-group list-group-flush">
             {messages.map((msg, idx) => {
 
               return (
-                <li key={idx}>
+                <li className="list-group-item" key={idx}>
                   <p><span>{msg.author}: </span>{msg.message}{msg.edited ? <p>edited</p> : null}</p>
                 </li>
               )
             })}
           </ul>
         </div>
-        <div className="row align-items-start">
-          <form id="chatBox">
-            <div className="col-md-5">
+          <form id="chatBox" className="row row-cols-md-auto align-items-center">
+            <div className="col align-items-center justify-content-center g-3">
 
               <input
                 type='text'
+                className='form-control'
                 placeholder="type message here"
                 value={message}
                 onChange={(ev) => {
@@ -103,7 +103,7 @@ const App = () => {
               />
 
             </div>
-            <div className="col-md-2">
+            <div className="col-12 g-3">
               <button 
               type="submit" 
               className="btn btn-primary"
@@ -116,7 +116,6 @@ const App = () => {
               </button>
             </div>
           </form>
-        </div>
       </div>
     </React.Fragment>
   )
