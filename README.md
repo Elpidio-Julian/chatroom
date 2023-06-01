@@ -25,6 +25,11 @@ Chat application built using PERN stack
     - Requires window for viewing messages
 
 
+## Testing build
+ 1. run 'npm run build'
+ 2. run 'npm run server'
+ 3. open localhost:3000
+
 ### **Helpful Links**
 
 #### *Documentation for packages*
