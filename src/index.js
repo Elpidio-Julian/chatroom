@@ -62,7 +62,7 @@ const App = () => {
       setMessages(messages => [...messages, {message: msg}])
     }
    
-    // socket events
+    // socket event handler
     socket.on('chat message', function(msg) {
       onChatMessage(msg)
     })
@@ -75,7 +75,7 @@ const App = () => {
     };
   }, []);
   console.log(messages)
-  
+
   return (
     <React.Fragment>
       <header>Hello World</header>
@@ -96,8 +96,8 @@ const App = () => {
           </ul>
         </div>
           {/* message box below */}
-          <form id="chatBox" className="row row-cols-md-auto align-items-center border border-dark m-1">
-            <div className="col-md-7 col-7 align-items-center justify-content-center g-2 m-2">
+          <form id="chatBox" className="row row-cols-md-auto align-items-center justify-content-between border border-dark m-1">
+            <div className="col-md-8 col-8 align-items-center justify-content-center g-1 w-75 m-1">
 
               <input
                 type='text'
@@ -110,7 +110,7 @@ const App = () => {
               />
 
             </div>
-            <div className="col-3 col-md-3 g-2 m-3">
+            <div className="col-4 col-md-4 g-1 w-20 m-1">
               {isConnected ? <button 
               type="submit" 
               className="btn btn-primary w-100"
