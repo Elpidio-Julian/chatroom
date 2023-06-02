@@ -12,11 +12,9 @@ Chat application built using PERN stack
 
 >*Server Demands:*
  >1. ability to receive and send messages
- >2. Needs to be CORS enabled
- >3. Possible addition of backing up messages using a postgresql database
+ >2. Possible addition of backing up messages using a postgresql database
 
 ## Client Approach using [React](https://react.dev/reference/react)
-
 
 1. Ability to connect to socket
 2. Ability to 'message' socket
@@ -24,6 +22,12 @@ Chat application built using PERN stack
 3. Ability to receive 'message' events from socket
     - Requires window for viewing messages
 
+## New Feature Planning
+    1. Database implementation
+    2. user authentication
+    3. private messaging
+    4. message edits
+    5. message storage and automatic deletion after two weeks
 
 ## Testing build
  1. run 'npm run build'
