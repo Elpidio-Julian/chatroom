@@ -23,11 +23,14 @@ Chat application built using PERN stack
     - Requires window for viewing messages
 
 ## New Feature Planning
-    1. Database implementation
-    2. user authentication
-    3. private messaging
-    4. message edits
-    5. message storage and automatic deletion after two weeks
+    1. user authentication 
+        - frontend user state management
+        - database auth
+        - password encryption with bcrypt
+        
+    2. private messaging
+    3. message edits
+    4. message storage and automatic deletion after two weeks
 
 ## Testing build
  1. run 'npm run build'
