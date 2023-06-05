@@ -38,6 +38,15 @@ Chat application built using PERN stack
  1. sudo service postgresql start
  2. database name is 'chat-storage'
 
+## database tables
+users will require and id, username, and password
+
+- id SERIAL PRIMARY KEY
+- username VARCHAR(255) UNIQUE NOT NULL
+##### encrypt passwords with bcrypt
+- password VARCHAR(255) NOT NULL
+
+
 ### **Helpful Links**
 
 #### *Documentation for packages*
