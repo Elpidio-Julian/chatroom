@@ -34,6 +34,10 @@ Chat application built using PERN stack
  2. run 'npm run server'
  3. open localhost:3000
 
+## Starting database
+ 1. sudo service postgresql start
+ 2. database name is 'chat-storage'
+
 ### **Helpful Links**
 
 #### *Documentation for packages*

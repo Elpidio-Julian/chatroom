@@ -1,17 +1,19 @@
-const express = require('express');
-const app = express();
 const http = require('http');
+const express = require('express');
+const app = require("./app"); // uses middleware from app file and exports the express() app.
 const server = http.createServer(app);
+
+const PORT = process.env["PORT"] ?? 3000
+
+
+//socket io necessities
 const { Server } = require("socket.io");
 const io = new Server(server);
-const path = require("path")
 
+// set up for hosting react build files with react
+const path = require("path")
 app.use(express.static(path.join(__dirname, "..", "build")))
 app.use(express.static("public"))
-
-// app.get('/', (req, res) => {
-//     res.send('<h1>Hello world</h1>');
-//   });
 
 io.on('connection', (socket) => {
     console.log('a user connected');
@@ -21,6 +23,13 @@ io.on('connection', (socket) => {
     });
   });
 
-server.listen(3000, () => {
-    console.log('listening on *:3000');
+
+
+
+
+
+
+
+  server.listen(PORT, () => {
+    console.log(`listening on *:${PORT}`);
   });
