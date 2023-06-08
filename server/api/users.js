@@ -90,3 +90,5 @@ usersRouter.post('/register', async (req, res, next) => {
         next({ name, message })
     }
 });
+
+module.exports = usersRouter;
