@@ -57,7 +57,24 @@ messages will require, id, authorId, date, and the message
 - date_sent DATE NOT NULL DEFAULT CURRENT_DATE
 - message TEXT NOT NULL
 
+private_messages will require id, authorId, receiverId, date, and the message
+- id SERIAL PRIMARY KEY
+- "authorId" INTEGER REFERENCES users( id )
+- "receiverId" INTEGER REFERENCES users( id )
+- date_sent DATE NOT NULL DEFAULT CURRENT_DATE
+- message TEXT NOT NULL
 
+groups will require id, date, name
+- id SERIAL PRIMARY KEY
+- name VARCHAR(255) NOT NULL
+- date_created DATE NOT NULL DEFAULT CURRENT_DATE
+
+group_messages will require id, group_id, authorId, date, and the message
+- id SERIAL PRIMARY KEY
+- group_id INTEGER REFERENCES groups( id )
+- "authorId" INTEGER REFERENCES users( id )
+- date_sent DATE NOT NULL DEFAULT CURRENT_DATE
+- message TEXT NOT NULL
 
 ### **Helpful Links**
 
