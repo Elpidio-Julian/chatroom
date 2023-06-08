@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken'); // for authenticatoin with jsonwebtokens
+const usersRouter = require('./users');
 
 // for user authentication below 
 // router.use(async (req, res, next) => {
@@ -38,6 +39,10 @@ router.get('/health', async (req, res, next) => {
     });
     next()
 });
+
+// ROUTER: /api/users
+router.use('/users', usersRouter);
+
 
 
 module.exports = router;
