@@ -49,6 +49,14 @@ users will require and id, username, and password
 ##### encrypt passwords with bcrypt
 - password VARCHAR(255) NOT NULL
 
+messages will require, id, authorId, date, and the message
+
+- id SERIAL PRIMARY KEY
+- "authorId" INTEGER REFERENCES users( id )
+- date_sent DATE NOT NULL DEFAULT CURRENT_DATE
+- message TEXT NOT NULL
+
+
 
 ### **Helpful Links**
 
