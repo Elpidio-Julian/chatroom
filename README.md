@@ -34,8 +34,9 @@ Chat application built using PERN stack
 
 ## Testing build
  1. run 'npm run build'
- 2. run 'npm run server'
- 3. open localhost:3000
+ 2. run 'npm run seed' for first time seeding
+ 3. run 'npm run server'
+ 4. open localhost:3000
 
 ## Starting database
  1. sudo service postgresql start
