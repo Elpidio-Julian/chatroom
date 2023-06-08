@@ -21,9 +21,9 @@
     "front:dev": "react-scripts start",
     "seed": "node ./server/db/seed.js"
   },
-  "author": "",
+  "author": "Elpidio Julian",
   "license": "NO LICENSE",
-  "description": "",
+  "description": "Fullstack Chat Application built by Elpidio Julian",
   "devDependencies": {
     "nodemon": "^2.0.22"
   },
