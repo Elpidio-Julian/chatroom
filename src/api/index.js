@@ -1,5 +1,8 @@
 const baseURL = 'local:host3000/api'; // to be changed later
 
+
+
+// regiser user post request
 export const registerUser = async (username, password) => {
     try {
       const response = await fetch(`${baseURL}/users/register`, {
@@ -22,6 +25,7 @@ export const registerUser = async (username, password) => {
     }
   }
 
+  // login user post request
   export const loginUser = async (username, password) => {
     try {
       const response = await fetch(`${baseURL}/users/login`, {
