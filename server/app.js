@@ -6,7 +6,7 @@ const app = express();
 // for building routers in api
 const router = require('./api');
 
-//cross origin resource sharing package
+//cross origin resource sharing middleware
 // app.use(cors())
 
 app.use(express.json())
