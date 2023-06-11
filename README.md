@@ -93,7 +93,9 @@ group_messages will require id, group_id, authorId, date, and the message
 
 - [Express docs](https://expressjs.com/en/4x/api.html)
 
-- [react-responsive](https://www.npmjs.com/package/react-responsive)
+- [react-responsive](https://www.npmjs.com/package/react-responsive) not currently in use
+
+- 
 
 #### *Helpful articles*
 

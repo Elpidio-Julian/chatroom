@@ -5,12 +5,44 @@ import { socket } from './socket';
 import './style.css';
 
 const SidePanel = () => {
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      setIsMobile(isMobile);
+    };
 
+    // Initial check on component mount
+    handleResize();
+
+    // Listen for resize events
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  // className="col-2 vw-25" "offcanvas offcanvas-start", "btn btn-primary" "btn btn-primary" "btn-close"
   return (
-    <div className="col-2 vw-25">
-          hello sidePanel
-    </div>
+    <React.Fragment>
+      <button className={isMobile ? "btn btn-primary" : "btn btn-primary d-none"} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+        Open Contacts
+      </button>
+
+      <div className={isMobile ? "offcanvas offcanvas-start" : "col-2 vw-25"} tabIndex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="offcanvasLabel">Contacts</h5>
+          <button type="button" className={isMobile ? "btn-close" : "btn-close d-none"} data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div className="offcanvas-body">
+          <div>
+            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
   )
 }
 
@@ -142,10 +174,10 @@ const ChatPage = ({ isConnected, setIsConnected }) => {
       {!isConnected ? <button type="button" className="btn btn-success" onClick={() => connect()}>Connect</button>
         : <button type="button" className="btn btn-danger" onClick={() => disconnect()}>Disconnect</button>
       }
-      <div className="container-fluid pt-3 align-items-center vh-100">
-        <div className="row">
-        <SidePanel />
-        <ChatWindow messages={messages} isConnected={isConnected} />
+      <div className="container pt-3 vh-100">
+        <div className="row justify-content-center">
+          <SidePanel />
+          <ChatWindow messages={messages} isConnected={isConnected} />
         </div>
       </div>
     </React.Fragment>
@@ -177,7 +209,7 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <header>Hello World</header>
+      <header>Chatter</header>
       <Routes>
         <Route
           path='/chat'
