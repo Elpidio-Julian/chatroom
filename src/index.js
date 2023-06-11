@@ -166,7 +166,15 @@ const App = () => {
   return (
     <React.Fragment>
       <header>Hello World</header>
-      <ChatPage isConnected={isConnected} setIsConnected={setIsConnected}/>
+      <Routes>
+        <Route 
+          path='/chat'
+          element={<ChatPage 
+            isConnected={isConnected} 
+            setIsConnected={setIsConnected}
+            />}  
+        />
+      </Routes>
     </React.Fragment>
   )
 }
