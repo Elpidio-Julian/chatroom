@@ -4,7 +4,15 @@ import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import { socket } from './socket';
 import './style.css';
 
+const SidePanel = () => {
 
+
+  return (
+    <div className="col-2 vw-25">
+          hello sidePanel
+    </div>
+  )
+}
 
 const ChatWindow = ({ messages, isConnected }) => {
 
@@ -136,9 +144,7 @@ const ChatPage = ({ isConnected, setIsConnected }) => {
       }
       <div className="container-fluid pt-3 align-items-center vh-100">
         <div className="row">
-        <div className="col-2 vw-25">
-          hello sidePanel
-        </div>
+        <SidePanel />
         <ChatWindow messages={messages} isConnected={isConnected} />
         </div>
       </div>
