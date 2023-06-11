@@ -23,14 +23,20 @@ Chat application built using PERN stack
     - Requires window for viewing messages
 
 ## New Feature Planning
-    1. user authentication 
+    1. side panel react component
+        - holds conversations with contacts
+        - allows for new conversations to be started
+        - requires conversation state
+        - will need to receive private messages
+        - will need to be able to interact with chat window to change to different conversations
+    2. user authentication 
         - frontend user state management
         - database auth
         - password encryption with bcrypt
         
-    2. private messaging
-    3. message edits
-    4. message storage and automatic deletion after two weeks
+    3. private messaging
+    4. message edits
+    5. message storage and automatic deletion after two weeks
 
 ## Testing build
  1. run 'npm run build'
