@@ -95,7 +95,7 @@ group_messages will require id, group_id, authorId, date, and the message
 
 - [react-responsive](https://www.npmjs.com/package/react-responsive) not currently in use
 
-- 
+- [Sass](https://sass-lang.com/documentation/) not currently in use
 
 #### *Helpful articles*
 
