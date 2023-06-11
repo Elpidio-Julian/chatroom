@@ -16,22 +16,22 @@ app.use(express.static(path.join(__dirname, "..", "build")))
 app.use(express.static("public"))
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
-    socket.on('chat message', (msg) => {
-      console.log(`message: ${msg}`)
-      io.emit('chat message', msg);
-    });
+  console.log('a user connected');
+  socket.on('chat message', (msg) => {
+    console.log(`message: ${msg}`)
+    io.emit('chat message', msg);
   });
+});
 
 
 
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "..", "build", "index.html"));
-  });
+});
 
 
 
 
-  server.listen(PORT, () => {
-    console.log(`listening on *:${PORT}`);
-  });
+server.listen(PORT, () => {
+  console.log(`listening on *:${PORT}`);
+});
