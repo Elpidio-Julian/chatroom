@@ -46,3 +46,20 @@ export const registerUser = async (username, password) => {
       console.log('error logging in user')
     }
   }
+
+  // user details for authentication
+
+  export const getUserDetails = async (token) => {
+    try {
+      const response = await fetch(`${baseURL}/users/me`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+      })
+      const result = await response.json();
+      return result
+    } catch (error) {
+      console.log('error getting users details')
+    }
+  }

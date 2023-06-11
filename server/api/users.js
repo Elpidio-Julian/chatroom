@@ -3,6 +3,7 @@ const usersRouter = express.Router();
 const {  getUserByUsername, createUser } = require('../db');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const { requireUser } = require('./utils');
 
 
 // POST /api/users/login
@@ -90,5 +91,14 @@ usersRouter.post('/register', async (req, res, next) => {
         next({ name, message })
     }
 });
+
+// GET /api/users/me
+usersRouter.get('/me', requireUser, async (req, res, next) => {
+  const user = req.user;
+  
+  res.send(user)
+})
+
+
 
 module.exports = usersRouter;
