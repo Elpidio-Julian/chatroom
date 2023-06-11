@@ -8,19 +8,19 @@ import './style.css';
 
 const ChatWindow = ({ messages, isConnected }) => {
 
-
   // message state for dynamically updating message to be sent in js
   const [message, setMessage] = useState('');
 
   // sending message function
   function sendMessage(message) {
     socket.emit('chat message', message);
-    console.log(message)
+    console.log(message);
     setMessage('');
   }
 
   return (
-    <div className="container pt-3 align-items-center vh-100">
+    <React.Fragment>
+      <div className="col vh-100">
         <div className="row align-items-start justify-content-center overflow-auto h-75 border border-primary m-1">
           <ul id="chatWindow" className="list-group list-group-flush">
             {messages.map((msg, idx) => {
@@ -33,50 +33,51 @@ const ChatWindow = ({ messages, isConnected }) => {
             })}
           </ul>
         </div>
-          {/* message box below */}
-          <form id="chatBox" className="row row-cols-md-auto align-items-center justify-content-between border border-dark m-1">
-            <div className="col-md-8 col-8 align-items-center justify-content-center g-1 w-75 m-1">
+        {/* message box below */}
+        <form id="chatBox" className="row row-cols-md-auto align-items-center justify-content-between border border-dark m-1">
+          <div className="col-md-8 col-8 align-items-center justify-content-center g-1 w-75 m-1">
 
-              <input
-                type='text'
-                className='form-control w-100'
-                placeholder="type message here"
-                value={message}
-                onChange={(ev) => {
-                  setMessage(ev.target.value);
-                }}
-              />
+            <input
+              type='text'
+              className='form-control w-100'
+              placeholder="type message here"
+              value={message}
+              onChange={(ev) => {
+                setMessage(ev.target.value);
+              }}
+            />
 
-            </div>
-            <div className="col-4 col-md-4 g-1 w-20 m-1">
-              {isConnected ? <button 
-              type="submit" 
+          </div>
+          <div className="col-4 col-md-4 g-1 w-20 m-1">
+            {isConnected ? <button
+              type="submit"
               className="btn btn-primary w-100"
               onClick={(ev) => {
                 ev.preventDefault();
                 sendMessage(message)
               }}
-              >
-                Send
-              </button> : <button 
-              type="submit" 
+            >
+              Send
+            </button> : <button
+              type="submit"
               className="btn btn-primary w-100"
               onClick={(ev) => {
                 ev.preventDefault();
               }}
               disabled>
-                Send
-              </button>}
-            </div>
-          </form>
+              Send
+            </button>}
+          </div>
+        </form>
       </div>
+    </React.Fragment>
   )
 }
 
 
 
 
-const ChatPage = ({isConnected, setIsConnected}) => {
+const ChatPage = ({ isConnected, setIsConnected }) => {
 
   const [messages, setMessages] = useState([
     {
@@ -85,14 +86,14 @@ const ChatPage = ({isConnected, setIsConnected}) => {
       author: 'System'
     }
   ]);
-  
+
   // functions for connecting/disconnecting from socket
   function connect() {
     socket.connect();
-  }
+  };
   function disconnect() {
     socket.disconnect();
-  }
+  };
 
   // socket io chat message event receiver
   // socket.on('chat message', function(msg) {
@@ -105,20 +106,20 @@ const ChatPage = ({isConnected, setIsConnected}) => {
     // socket helper functions
     function onConnect() {
       setIsConnected(true);
-    }
+    };
 
     function onDisconnect() {
       setIsConnected(false);
-    }
+    };
 
     function onChatMessage(msg) {
-      setMessages(messages => [...messages, {message: msg}])
-    }
-   
+      setMessages(messages => [...messages, { message: msg }])
+    };
+
     // socket event handler
-    socket.on('chat message', function(msg) {
+    socket.on('chat message', function (msg) {
       onChatMessage(msg)
-    })
+    });
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
 
@@ -133,11 +134,16 @@ const ChatPage = ({isConnected, setIsConnected}) => {
       {!isConnected ? <button type="button" className="btn btn-success" onClick={() => connect()}>Connect</button>
         : <button type="button" className="btn btn-danger" onClick={() => disconnect()}>Disconnect</button>
       }
-
-      <ChatWindow messages={messages} isConnected={isConnected}/>
-
+      <div className="container pt-3 align-items-center vh-100">
+        <div className="row">
+        <div className="col-2 vw-25">
+          hello sidePanel
+        </div>
+        <ChatWindow messages={messages} isConnected={isConnected} />
+        </div>
+      </div>
     </React.Fragment>
-    
+
   )
 }
 
@@ -160,19 +166,19 @@ const App = () => {
 
   // state for dynamically letting user know if they are connected and for button to keep track of connection
   // socket should not connect automatically so the state should start as false
-  const [isConnected, setIsConnected] = useState(false)
+  const [isConnected, setIsConnected] = useState(false);
 
 
   return (
     <React.Fragment>
       <header>Hello World</header>
       <Routes>
-        <Route 
+        <Route
           path='/chat'
-          element={<ChatPage 
-            isConnected={isConnected} 
+          element={<ChatPage
+            isConnected={isConnected}
             setIsConnected={setIsConnected}
-            />}  
+          />}
         />
       </Routes>
     </React.Fragment>
