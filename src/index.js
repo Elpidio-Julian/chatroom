@@ -20,7 +20,7 @@ const ChatWindow = ({ messages, isConnected }) => {
 
   return (
     <React.Fragment>
-      <div className="col vh-100">
+      <div className="col-8 vh-100">
         <div className="row align-items-start justify-content-center overflow-auto h-75 border border-primary m-1">
           <ul id="chatWindow" className="list-group list-group-flush">
             {messages.map((msg, idx) => {
@@ -134,7 +134,7 @@ const ChatPage = ({ isConnected, setIsConnected }) => {
       {!isConnected ? <button type="button" className="btn btn-success" onClick={() => connect()}>Connect</button>
         : <button type="button" className="btn btn-danger" onClick={() => disconnect()}>Disconnect</button>
       }
-      <div className="container pt-3 align-items-center vh-100">
+      <div className="container-fluid pt-3 align-items-center vh-100">
         <div className="row">
         <div className="col-2 vw-25">
           hello sidePanel
