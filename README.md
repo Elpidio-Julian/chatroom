@@ -93,6 +93,8 @@ group_messages will require id, group_id, authorId, date, and the message
 
 - [Express docs](https://expressjs.com/en/4x/api.html)
 
+- [react-responsive](https://www.npmjs.com/package/react-responsive)
+
 #### *Helpful articles*
 
 - [Rendering react app using express server in node](https://levelup.gitconnected.com/how-to-render-react-app-using-express-server-in-node-js-a428ec4dfe2b)
