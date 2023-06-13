@@ -6,9 +6,12 @@ Chat application built using PERN stack
 >*User Demands:*
  >1. ability to send and receive messages
  >2. live message feedback
- >3. private messaging
- >4. options for room joining/leaving
- >5. Keep track of rooms for user
+ >3. contact list
+ >4. private messaging
+ >5. options for room joining/leaving
+ >6. Keep track of rooms for user
+ >7. group messages
+ >8. show last message on the contact list
 
 >*Server Demands:*
  >1. ability to receive and send messages
